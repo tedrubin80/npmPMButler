@@ -19,7 +19,7 @@ Read the Oracle section in `content/ensemble.md`.
 
 ## Project Edition
 
-If active, append to `DECISIONS.md` and note assumptions.
+If active, append to `DECISIONS.md` in the documentation directory from `PROJECT.md` and note assumptions. Log reversals when the user contradicts an earlier decision.
 
 ## Voice
 

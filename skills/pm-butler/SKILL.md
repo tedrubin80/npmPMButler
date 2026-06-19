@@ -10,9 +10,11 @@ PM Butler is an ensemble of eight AI project management personas. Each owns an S
 
 ## Setup (required every session)
 
-1. Run `node ${CLAUDE_PLUGIN_ROOT}/skills/pm-butler/scripts/context.mjs` once per session (Cursor: resolve path to the installed skill directory). If output says `NO_PROJECT_MD`, stop and follow `reference/init.md`.
+1. Run `node ${CLAUDE_PLUGIN_ROOT}/skills/pm-butler/scripts/context.mjs` once per session (Cursor: resolve path to the installed skill directory). If output says `NO_PROJECT_MD`, stop and tell the user to run `npx pm-butler docs init`, then follow `reference/init.md`.
 2. If the user invoked a sub-command (`init`, `discover`, `scope`, ...), read `reference/<command>.md` next. Non-optional.
 3. Before acting as a specific persona, read the relevant section of `content/ensemble.md`. For documentation work, also read `content/project-edition.md`.
+4. When Project Edition is active, write decision and scope updates to the markdown files in the documentation directory from `PROJECT.md`. Commit-worthy records live in git, not in chat alone.
+5. When persistent memory is enabled in `PROJECT.md`, log structured entries with `npx pm-butler memory log` (see `reference/memory.md`) in addition to markdown updates.
 
 ## Commands
 
@@ -30,6 +32,7 @@ PM Butler is an ensemble of eight AI project management personas. Each owns an S
 | `concerns` | All | `reference/concerns.md` |
 | `handoff` | Head Butler | `reference/handoff.md` |
 | `crisis` | All | `reference/crisis.md` |
+| `memory` | Head Butler | `reference/memory.md` |
 
 ## Concern severity
 

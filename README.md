@@ -1,81 +1,106 @@
 # PM Butler
 
-Eight AI project management personas for Claude Code, Cursor, and Copilot-class harnesses. PM Butler routes work across your entire SDLC â€” discovery through handoff â€” using specialized personas that produce structured output you can use as real project documentation.
+Eight AI project management personas for Claude Code, Cursor, and npm-based skill install.
 
-## Personas
-
-| Persona | Phase |
-|---------|-------|
-| **Head Butler** | Routing, init, handoff |
-| **Oracle** | Discovery & research |
-| **Sculptor** | Scope & requirements |
-| **Architect** | Design & planning |
-| **Alchemist** | Sprint & development |
-| **Gatekeeper** | Review & QA |
-| **Shipper** | Launch & deployment |
-| **Librarian** | Documentation |
+**Site:** [pmbutler.dev](https://pmbutler.dev) · **Repository:** [github.com/tedrubin80/pmbutler](https://github.com/tedrubin80/pmbutler) · **npm:** [pm-butler](https://www.npmjs.com/package/pm-butler)
 
 ## Install
 
+### Claude Code (plugin marketplace)
+
+```
+/plugin marketplace add tedrubin80/pmbutler
+/plugin install pmbutler
+```
+
+Invoke: `/pmbutler:pm-butler init`
+
+Local dev test:
+
 ```bash
-npm install github:tedrubin80/npmPMButler
+claude --plugin-dir .
 ```
 
-Or run without installing:
+### Cursor / Claude (personal skill via npm)
 
 ```bash
-npx github:tedrubin80/npmPMButler skills install
+npx pm-butler skills install
+npx pm-butler skills check
 ```
 
-### Install skills to your agent
+### Project Edition (decision logs in your repo)
+
+Scaffold living markdown files for decisions, scope, risks, and lessons:
 
 ```bash
-npx github:tedrubin80/npmPMButler skills install --all     # Claude Code + Cursor
-npx github:tedrubin80/npmPMButler skills install --claude  # Claude Code only
-npx github:tedrubin80/npmPMButler skills install --cursor  # Cursor only
-npx github:tedrubin80/npmPMButler skills check             # Verify install
+npx pm-butler docs init
+npx pm-butler docs init --dir docs/pm   # optional subdirectory
+npx pm-butler docs check
 ```
 
-Installs to:
-- `~/.claude/skills/pm-butler/` (Claude Code)
-- `~/.cursor/skills/pm-butler/` (Cursor)
+Creates `PROJECT.md` plus eleven Project Edition files (`DECISIONS.md`, `SCOPE.md`, `RISKS.md`, etc.). Commit them to git — that is the durable record. Personas update these files during `/pm-butler` commands.
 
-## Usage
+### Persistent memory (optional)
 
-Once installed, invoke inside your agent:
+Programmable structured memory in a local folder or SQLite database:
 
-```
-/pm-butler init        # Start a new project, creates PROJECT.md
-/pm-butler route       # Let Head Butler route your request
-/pm-butler discover    # Oracle â€” research & discovery
-/pm-butler scope       # Sculptor â€” requirements & scope
-/pm-butler design      # Architect â€” technical design
-/pm-butler sprint      # Alchemist â€” sprint planning
-/pm-butler review      # Gatekeeper â€” QA & review
-/pm-butler launch      # Shipper â€” deployment
-/pm-butler document    # Librarian â€” documentation
-/pm-butler concerns    # Flag issues across all personas
-/pm-butler handoff     # Hand off between phases
-/pm-butler crisis      # All hands â€” crisis mode
+```bash
+# Git-friendly JSON under .claude/pm-butler/memory/
+npx pm-butler memory init --enable --path .claude/pm-butler --backend folder
+
+# SQLite under .pm-butler/sqlite/pm-butler.db (Node 22+)
+npx pm-butler memory init --enable --path .pm-butler --backend sqlite
+
+npx pm-butler memory status
+npx pm-butler memory config --enable --backend folder --path .claude/pm-butler
+npx pm-butler memory log --type decision --title "Pick npm for install" --body "..."
+npx pm-butler memory list --type decision --limit 10
 ```
 
-## Concern Severity
+Settings live in `PROJECT.md` (**Persistent memory** section) and `<path>/config.json`. Toggle anytime with `memory config --enable` or `--disable`.
 
-- **Watch** â€” noted, not blocking
-- **Concern** â€” must address before proceeding
-- **Blocker** â€” phase cannot close until resolved
+### Project-local (Cursor)
 
-## Handoff Chain
+Commit `.cursor/skills/pm-butler/` into your repo. See `npm-packages/v2/project-local/` in the parent monorepo for layout.
+
+## First run
 
 ```
-Oracle â†’ Sculptor â†’ Architect â†’ Alchemist â†’ Gatekeeper â†’ Shipper â†’ Librarian â†’ Oracle
+/pmbutler:pm-butler init
 ```
 
-## Requirements
+Creates `PROJECT.md` from `templates/PROJECT.md`.
 
-- Node.js 18+
-- Claude Code, Cursor, or any Copilot-class harness
+## Structure
 
-## License
+```
+skills/pm-butler/
+??? SKILL.md           # Entry point
+??? reference/         # Sub-command flows
+??? content/           # Full ensemble + project edition prompts
+??? scripts/           # context.mjs
+```
 
-MIT â€” Â© Ted Rubin. Free to use and build on with attribution.
+## Commands
+
+`init` · `route` · `discover` · `scope` · `design` · `sprint` · `review` · `launch` · `document` · `concerns` · `handoff` · `crisis`
+
+See `skills/pm-butler/SKILL.md` for the full table.
+
+## Repository
+
+This is the **npm publish repo**: [github.com/tedrubin80/npmPMButler](https://github.com/tedrubin80/npmPMButler)
+
+Full monorepo (site, Gumroad packs): [github.com/tedrubin80/pmbutler](https://github.com/tedrubin80/pmbutler) — attached as git submodule at `npmPMButler/`.
+
+## Changelog
+
+### 0.1.4
+
+- Synced full package: `docs init`, `memory`, templates
+- Repository moved to npmPMButler; monorepo submodule
+
+### 0.1.3
+
+- `docs init` / Project Edition scaffolds
+- `memory init` / persistent memory (folder + sqlite)
