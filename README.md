@@ -1,62 +1,81 @@
 # PM Butler
 
-Eight AI project management personas for Claude Code, Cursor, and npm-based skill install.
+Eight AI project management personas for Claude Code, Cursor, and Copilot-class harnesses. PM Butler routes work across your entire SDLC — discovery through handoff — using specialized personas that produce structured output you can use as real project documentation.
 
-**Repository:** [github.com/tedrubin80/pmbutler](https://github.com/tedrubin80/pmbutler)
+## Personas
+
+| Persona | Phase |
+|---------|-------|
+| **Head Butler** | Routing, init, handoff |
+| **Oracle** | Discovery & research |
+| **Sculptor** | Scope & requirements |
+| **Architect** | Design & planning |
+| **Alchemist** | Sprint & development |
+| **Gatekeeper** | Review & QA |
+| **Shipper** | Launch & deployment |
+| **Librarian** | Documentation |
 
 ## Install
 
-### Claude Code (plugin marketplace)
-
-```
-/plugin marketplace add tedrubin80/pmbutler
-/plugin install pmbutler
+```bash
+npm install github:tedrubin80/npmPMButler
 ```
 
-Invoke: `/pmbutler:pm-butler init`
-
-Local dev test:
+Or run without installing:
 
 ```bash
-claude --plugin-dir .
+npx github:tedrubin80/npmPMButler skills install
 ```
 
-### Cursor / Claude (personal skill via npm)
+### Install skills to your agent
 
 ```bash
-npx pm-butler skills install
-npx pm-butler skills check
+npx github:tedrubin80/npmPMButler skills install --all     # Claude Code + Cursor
+npx github:tedrubin80/npmPMButler skills install --claude  # Claude Code only
+npx github:tedrubin80/npmPMButler skills install --cursor  # Cursor only
+npx github:tedrubin80/npmPMButler skills check             # Verify install
 ```
 
-Copies `skills/pm-butler/` to:
+Installs to:
+- `~/.claude/skills/pm-butler/` (Claude Code)
+- `~/.cursor/skills/pm-butler/` (Cursor)
 
-- `~/.cursor/skills/pm-butler/`
-- `~/.claude/skills/pm-butler/`
+## Usage
 
-### Project-local (Cursor)
-
-Commit `.cursor/skills/pm-butler/` into your repo. See `packaging-example/project-local/` in the parent monorepo for layout.
-
-## First run
+Once installed, invoke inside your agent:
 
 ```
-/pmbutler:pm-butler init
+/pm-butler init        # Start a new project, creates PROJECT.md
+/pm-butler route       # Let Head Butler route your request
+/pm-butler discover    # Oracle — research & discovery
+/pm-butler scope       # Sculptor — requirements & scope
+/pm-butler design      # Architect — technical design
+/pm-butler sprint      # Alchemist — sprint planning
+/pm-butler review      # Gatekeeper — QA & review
+/pm-butler launch      # Shipper — deployment
+/pm-butler document    # Librarian — documentation
+/pm-butler concerns    # Flag issues across all personas
+/pm-butler handoff     # Hand off between phases
+/pm-butler crisis      # All hands — crisis mode
 ```
 
-Creates `PROJECT.md` from `templates/PROJECT.md`.
+## Concern Severity
 
-## Structure
+- **Watch** — noted, not blocking
+- **Concern** — must address before proceeding
+- **Blocker** — phase cannot close until resolved
+
+## Handoff Chain
 
 ```
-skills/pm-butler/
-??? SKILL.md           # Entry point
-??? reference/         # Sub-command flows
-??? content/           # Full ensemble + project edition prompts
-??? scripts/           # context.mjs
+Oracle → Sculptor → Architect → Alchemist → Gatekeeper → Shipper → Librarian → Oracle
 ```
 
-## Commands
+## Requirements
 
-`init` � `route` � `discover` � `scope` � `design` � `sprint` � `review` � `launch` � `document` � `concerns` � `handoff` � `crisis`
+- Node.js 18+
+- Claude Code, Cursor, or any Copilot-class harness
 
-See `skills/pm-butler/SKILL.md` for the full table.
+## License
+
+MIT — © Ted Rubin. Free to use and build on with attribution.
