@@ -95,6 +95,10 @@ Full monorepo (site, Gumroad packs): [github.com/tedrubin80/pmbutler](https://gi
 
 ## Changelog
 
+### 0.1.5
+
+- `npm pkg fix`: normalized `repository.url` and `bin` path (no behavior changes)
+
 ### 0.1.4
 
 - Synced full package: `docs init`, `memory`, templates
