@@ -1,0 +1,38 @@
+{
+  "name": "pm-butler",
+  "version": "0.1.0",
+  "description": "Eight AI project management personas for Cursor, Claude Code, and Copilot-class harnesses.",
+  "type": "module",
+  "bin": {
+    "pm-butler": "./bin/pm-butler.js"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "skills",
+    "templates",
+    ".claude-plugin",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "cursor",
+    "claude-code",
+    "copilot",
+    "skills",
+    "project-management",
+    "sdlc",
+    "agents"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/tedrubin80/pmbutler",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tedrubin80/pmbutler.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tedrubin80/pmbutler/issues"
+  }
+}
