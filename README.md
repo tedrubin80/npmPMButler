@@ -61,7 +61,7 @@ Settings live in `PROJECT.md` (**Persistent memory** section) and `<path>/config
 
 ### Project-local (Cursor)
 
-Commit `.cursor/skills/pm-butler/` into your repo. See `npm-packages/v2/project-local/` in the parent monorepo for layout.
+Commit `.cursor/skills/pm-butler/` into your repo. See `npm-packages/v2/project-local/` in the [pmbutler monorepo](https://github.com/tedrubin80/pmbutler).
 
 ## First run
 

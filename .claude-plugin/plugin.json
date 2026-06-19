@@ -1,0 +1,23 @@
+{
+  "name": "pmbutler",
+  "description": "Eight AI project management personas with SDLC coverage, concern severity, living documentation, and optional persistent memory.",
+  "version": "0.1.5",
+  "author": {
+    "name": "Ted Rubin",
+    "url": "https://github.com/tedrubin80"
+  },
+  "homepage": "https://pmbutler.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tedrubin80/npmPMButler.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "project-management",
+    "sdlc",
+    "agents",
+    "skills",
+    "pm",
+    "documentation"
+  ]
+}
