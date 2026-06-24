@@ -2,7 +2,7 @@
 
 Eight AI project management personas for Claude Code, Cursor, and npm-based skill install.
 
-**Site:** [pmbutler.dev](https://pmbutler.dev) · **Repository:** [github.com/tedrubin80/pmbutler](https://github.com/tedrubin80/pmbutler) · **npm:** [pm-butler](https://www.npmjs.com/package/pm-butler)
+**Site:** [pmbutler.dev](https://pmbutler.dev) · **Repository:** [github.com/tedrubin80/npmPMButler](https://github.com/tedrubin80/npmPMButler) · **npm:** [pm-butler](https://www.npmjs.com/package/pm-butler)
 
 ## Install
 
@@ -61,7 +61,7 @@ Settings live in `PROJECT.md` (**Persistent memory** section) and `<path>/config
 
 ### Project-local (Cursor)
 
-Commit `.cursor/skills/pm-butler/` into your repo. See `npm-packages/v2/project-local/` in the [pmbutler monorepo](https://github.com/tedrubin80/pmbutler).
+Commit `.cursor/skills/pm-butler/` into your repo. See `npm-packages/v2/project-local/` in the [npmPMButler repo](https://github.com/tedrubin80/npmPMButler).
 
 ## First run
 
@@ -91,7 +91,7 @@ See `skills/pm-butler/SKILL.md` for the full table.
 
 This is the **npm publish repo**: [github.com/tedrubin80/npmPMButler](https://github.com/tedrubin80/npmPMButler)
 
-Full monorepo (site, Gumroad packs): [github.com/tedrubin80/pmbutler](https://github.com/tedrubin80/pmbutler) — attached as git submodule at `npmPMButler/`.
+Full monorepo (site, Gumroad packs): [github.com/tedrubin80/npmPMButler](https://github.com/tedrubin80/npmPMButler) — attached as git submodule at `npmPMButler/`.
 
 ## Changelog
 
